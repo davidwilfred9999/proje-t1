@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>project</title>
+    <link rel="stylesheet" type="text/css" href="project2.css">
+    
+</head>
+<body>
+    <div class="body-container">
+ <div class="icon">
+    <a href="project.html" > 
+        <div class="line line1"></div>
+        <div class="line line2"></div>
+        <div class="line line3"></div>
+    </a>
+</div>
+<form  id="form">
+    <input type="text" id="search" class="search" placeholder="Search">
+</form>
+
+</div>
+<span class="header">Men</span><hr>
+
+<section id="main">
+    <canvas id="canvas" width="600" height="400">
+        hopefully you dont see this. if you do, get google chrome
+    </canvas>
+</section>
+
+
+  </div>
+</div>
+
+
+
+
+
+
+<div id="theme"></div>
+    </body>
+
+    
+    <script>
+        
+    (function(){
+        let onpageLoad = localStorage.getItem("theme") || "";
+        element = document.querySelector(".body-container");
+        element.classList.add(onpageLoad);
+        document.getElementById("theme").textContent = 
+         localStorage.getItem("theme") || "light";
+    })();
+    function myFunction(){
+        let element = document.querySelector(".body-container");
+        element.classList.toggle("Dark-mode");
+
+        let theme = localStorage.getItem("theme");
+        if (theme && theme === "Dark-mode") {
+            localStorage.setItem("theme", "Light-mode");
+        }else{
+            localStorage.setItem("theme", "Dark-mode");
+        }
+        document.getElementById("theme").textContent =localStorage.getItem("theme");
+    };
+
+    function doFirst() {
+    var x = document.getElementById('canvas');
+    canvas = x.getContext('2d');
+    var g = canvas.createLinearGradient(0,0,200,200 )
+    g.addColorStop(.0, "blue");
+    g.addColorStop(.5,"red");
+    g.addColorStop(1,"purple");
+    canvas.fillStyle = g;
+    canvas.fillRect(10,10,200,200)
+    }
+    window.addEventListener("load", doFirst, false);
+
+
+
+    </script>
+    <script src="project2.js"></script>
+
+</html>
